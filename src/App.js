@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const apiKey = "0e0fc87f95ad0c667bdd54d2aa2aa067";
+  const {city, setCity} = useState("");
+  return ( <div>
+    <input 
+    type="text" 
+    placeholder='Enter a city' 
+    onChange={event => setCity.target.value}>
+
+    </input>
+ </div>)
+
+ 
 }
 
 export default App;
