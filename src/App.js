@@ -7,11 +7,16 @@ function App() {
     const [lat, setLat] = useState([])
     const [lon, setLon] = useState([])
     const [days, setDays] = useState([])
-
+//math.round est une fonction preexistente qui permet d'arrondir les chiffres
     const getWeather = (event) => {
         if (event.key == "Enter") {
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`).then(
-                response => response.json()
+                 //pour fetch, il faut toujours entouré le lien avec des `, sinon ça ne marche pas
+    //afin de récupérer la ville qui nous intéresse, on entre ${city}
+    //le $ devant une contante est pour dire que l'on récupère une donnée entrée par l'utilisateur
+     //signifie "après avoir appuyer sur enter, le programme doit faire quelque chose par la suite
+      response=> response.json() //les informations récupérées seront envoyées vers un fichier nommé response.json
+                ,response => response.json()
             ).then(
                 data => {
                     setWeatherData(data)
